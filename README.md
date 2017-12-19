@@ -1,56 +1,74 @@
-# EncryptLib
+ï»¿# EncryptLib(åŠ å¯†å·¥å…·)
 
+å­—ç¬¦ä¸²ï¼Œbyte[]ï¼Œæ–‡ä»¶ç­‰å¯¹è±¡çš„åŠ å¯†å’Œè§£å¯†å·¥å…·é›†åˆï¼ŒåŒ…å«äº†å¤šç§åŠ å¯†æ–¹æ¡ˆã€‚
 
-×Ö·û´®£¬byte[]£¬ÎÄ¼şµÈ¶ÔÏóµÄ¼ÓÃÜºÍ½âÃÜ¹¤¾ß¼¯ºÏ£¬°üº¬ÁË¶àÖÖ¼ÓÃÜ·½°¸¡£
+| åŠ å¯†ç±»å‹  | æ‘˜è¦                | ç›¸å…³æ–¹æ³•            |
+| ----- | ----------------- | --------------- |
+| ç®€å•åŠ å¯†  | æ¢ä¸€ç§ç¼–ç æ ¼å¼           | Base64Util      |
+| å•å‘åŠ å¯†  | åªèƒ½åŠ å¯†ï¼Œä¸èƒ½è§£å¯†         | MD5Utilã€SHAUtil |
+| å¯¹ç§°åŠ å¯†  | ä½¿ç”¨ç›¸åŒçš„ç§˜é’¥åŠ å¯†å’Œè§£å¯†      | AESUtilã€DESUtil |
+| éå¯¹ç§°åŠ å¯† | åˆ†å…¬é’¥å’Œç§é’¥ï¼Œä¸€ä¸ªåŠ å¯†ï¼Œå¦ä¸€ä¸ªè§£å¯† | RSAUtil         |
 
-¼ÓÃÜÀàĞÍ	ÕªÒª	Ïà¹Ø·½·¨
-¼òµ¥¼ÓÃÜ	»»Ò»ÖÖ±àÂë¸ñÊ½	Base64Util
-µ¥Ïò¼ÓÃÜ	Ö»ÄÜ¼ÓÃÜ£¬²»ÄÜ½âÃÜ	MD5Util¡¢SHAUtil
-¶Ô³Æ¼ÓÃÜ	Ê¹ÓÃÏàÍ¬µÄÃØÔ¿¼ÓÃÜºÍ½âÃÜ	AESUtil¡¢DESUtil
-·Ç¶Ô³Æ¼ÓÃÜ	·Ö¹«Ô¿ºÍË½Ô¿£¬Ò»¸ö¼ÓÃÜ£¬ÁíÒ»¸ö½âÃÜ	RSAUtil
-Ê¹ÓÃ·½·¨
-Base64util
-·½·¨	ÕªÒª
-String base64EncodeStr(String str)	±àÂë
-String base64DecodedStr(String str)	½âÂë
-µ¥Ôª²âÊÔ£º
+## ä½¿ç”¨æ–¹æ³•
 
+### Base64util
+
+| æ–¹æ³•                                  | æ‘˜è¦   |
+| ----------------------------------- | ---- |
+| String  base64EncodeStr(String str) | ç¼–ç    |
+| String base64DecodedStr(String str) | è§£ç    |
+
+å•å…ƒæµ‹è¯•ï¼š
+
+```java
 System.out.println("base64");
-// base64 ×Ö·û´®¼ÓÃÜ½âÃÜ²âÊÔ
-assertEquals("R2NzU2xvb3DkuK3mloc=\n", Base64Util.base64EncodeStr("GcsSloopÖĞÎÄ"));
-assertEquals("GcsSloopÖĞÎÄ", Base64Util.base64DecodedStr("R2NzU2xvb3DkuK3mloc=\n"));
-MD5Util
-·½·¨	ÕªÒª
-String md5(String string)	¼ÓÃÜ×Ö·û´®
-String md5(String string, String slat)	¼ÓÃÜ×Ö·û´®Í¬Ê±¼ÓÑÎ
-String md5(String string, int times)	¶à´Î¼ÓÃÜ
-String md5(File file)	¼ÆËãÎÄ¼şµÄmd5ÊıÖµ
-µ¥Ôª²âÊÔ£º
+// base64 å­—ç¬¦ä¸²åŠ å¯†è§£å¯†æµ‹è¯•
+assertEquals("R2NzU2xvb3DkuK3mloc=\n", Base64Util.base64EncodeStr("GcsSloopä¸­æ–‡"));
+assertEquals("GcsSloopä¸­æ–‡", Base64Util.base64DecodedStr("R2NzU2xvb3DkuK3mloc=\n"));
+```
 
+### MD5Util
+
+| æ–¹æ³•                                     | æ‘˜è¦         |
+| -------------------------------------- | ---------- |
+| String md5(String string)              | åŠ å¯†å­—ç¬¦ä¸²      |
+| String md5(String string, String slat) | åŠ å¯†å­—ç¬¦ä¸²åŒæ—¶åŠ ç›  |
+| String md5(String string, int times)   | å¤šæ¬¡åŠ å¯†       |
+| String md5(File file)                  | è®¡ç®—æ–‡ä»¶çš„md5æ•°å€¼ |
+
+
+å•å…ƒæµ‹è¯•ï¼š
+```java
 System.out.println("md5");
-// MD5 ×Ö·û´®¼ÓÃÜ²âÊÔ
+// MD5 å­—ç¬¦ä¸²åŠ å¯†æµ‹è¯•
 assertEquals("", MD5Util.md5(""));
-assertEquals("386d3ff3fa6def1ec307428e885e03a1", MD5Util.md5("GcsSloopÖĞÎÄ"));
-assertEquals("fd01aa74bb73bbdb094bae28a558c6d1", MD5Util.md5("GcsSloopÖĞÎÄ", "salt"));
+assertEquals("386d3ff3fa6def1ec307428e885e03a1", MD5Util.md5("GcsSloopä¸­æ–‡"));
+assertEquals("fd01aa74bb73bbdb094bae28a558c6d1", MD5Util.md5("GcsSloopä¸­æ–‡", "salt"));
 
-// MD5 ¶à´Î¼ÓÃÜ²âÊÔ
-assertEquals("GcsSloopÖĞÎÄ", MD5Util.md5("GcsSloopÖĞÎÄ", 0));
-assertEquals("386d3ff3fa6def1ec307428e885e03a1", MD5Util.md5("GcsSloopÖĞÎÄ", 1));
-assertEquals("2d9fdd834c5c852fa2f946b670f3731f", MD5Util.md5("GcsSloopÖĞÎÄ", 2));
-assertEquals("211dd7a16d5a01df756278cea9a38d53", MD5Util.md5("GcsSloopÖĞÎÄ", 3));
+// MD5 å¤šæ¬¡åŠ å¯†æµ‹è¯•
+assertEquals("GcsSloopä¸­æ–‡", MD5Util.md5("GcsSloopä¸­æ–‡", 0));
+assertEquals("386d3ff3fa6def1ec307428e885e03a1", MD5Util.md5("GcsSloopä¸­æ–‡", 1));
+assertEquals("2d9fdd834c5c852fa2f946b670f3731f", MD5Util.md5("GcsSloopä¸­æ–‡", 2));
+assertEquals("211dd7a16d5a01df756278cea9a38d53", MD5Util.md5("GcsSloopä¸­æ–‡", 3));
 
-// MD5 ÎÄ¼şmd5²âÊÔ
+// MD5 æ–‡ä»¶md5æµ‹è¯•
 File file = new File("./Encrypt/Test/demo" +
                              ".flv");
 assertEquals("a4e592e6160e0102e7ecc4ab6117b700", MD5Util.md5(file));
-SHAUtil
-·½·¨	ÕªÒª
-String sha(String string, String type)	¼ÓÃÜ
-µ¥Ôª²âÊÔ£º
+```
 
+### SHAUtil
+
+| æ–¹æ³•                                     | æ‘˜è¦   |
+| -------------------------------------- | ---- |
+| String sha(String string, String type) | åŠ å¯†   |
+
+å•å…ƒæµ‹è¯•ï¼š
+
+```java
 System.out.println("sha");
-// des ×Ö·û´®¼ÓÃÜ½âÃÜ²âÊÔ
-String source = "GcsSloopÖĞÎÄ";
+// des å­—ç¬¦ä¸²åŠ å¯†è§£å¯†æµ‹è¯•
+String source = "GcsSloopä¸­æ–‡";
 assertEquals("b9dd1d754ee3ac16dc584b8fd4655ca581a0637eab8ff25128b0a522372e7233",
              SHAUtil.sha(source, null));
 assertEquals("34d44835ce4cc4d7ecf66428e49273bf02f748d7213be24c767c5f4f",
@@ -61,71 +79,134 @@ assertEquals("2e3c27201c21b06b01289ebef09c9c36e752ca6a5b6425ca7b2501b4baaed29876
              SHAUtil.sha(source, SHAUtil.SHA384));
 assertEquals("bc3f55fcb03272ee166d7804ccba348ffba05ddce08bf3fab719fa2c97c8dc71993fc9524e21b8fee9491aafc0b309ebca797163bca45ece7c3dd73dae3698ee",
              SHAUtil.sha(source, SHAUtil.SHA512));
-AESUtil
-·½·¨	ÕªÒª
-String aes(String content, String password, int type)	¼ÓÃÜ£¯½âÃÜ
-µ¥Ôª²âÊÔ£º
+```
 
+### AESUtil
+
+| æ–¹æ³•                                       | æ‘˜è¦    |
+| ---------------------------------------- | ----- |
+| String aes(String content, String password,  int type) | åŠ å¯†ï¼è§£å¯† |
+
+å•å…ƒæµ‹è¯•ï¼š
+
+```java
 System.out.println("aes");
-// aes ×Ö·û´®¼ÓÃÜ½âÃÜ²âÊÔ
-String source = "GcsSloopÖĞÎÄ";
+// aes å­—ç¬¦ä¸²åŠ å¯†è§£å¯†æµ‹è¯•
+String source = "GcsSloopä¸­æ–‡";
 String key = "1234567890123456";
-System.out.println("Ô­Êı¾İ = " + source);
+System.out.println("åŸæ•°æ® = " + source);
 String aesStr = AESUtil.aes(source, key, Cipher.ENCRYPT_MODE);
-System.out.println("¼ÓÃÜºó = " + aesStr);
+System.out.println("åŠ å¯†å = " + aesStr);
 String result = AESUtil.aes(aesStr, key, Cipher.DECRYPT_MODE);
-System.out.println("½âÃÜºó = " + result);
+System.out.println("è§£å¯†å = " + result);
 assertEquals(source, result);
-DESUtil
-·½·¨	ÕªÒª
-String des(String content, String password, int type)	¼ÓÃÜ£¯½âÃÜ
-µ¥Ôª²âÊÔ£º
+```
 
+### DESUtil
+
+| æ–¹æ³•                                       | æ‘˜è¦    |
+| ---------------------------------------- | ----- |
+| String des(String content, String password,  int type) | åŠ å¯†ï¼è§£å¯† |
+
+å•å…ƒæµ‹è¯•ï¼š
+
+```java
 System.out.println("des");
-// des ×Ö·û´®¼ÓÃÜ½âÃÜ²âÊÔ
-String source = "GcsSloopÖĞÎÄ";
+// des å­—ç¬¦ä¸²åŠ å¯†è§£å¯†æµ‹è¯•
+String source = "GcsSloopä¸­æ–‡";
 String key = "1234567890123456";
-System.out.println("Ô­Êı¾İ = " + source);
+System.out.println("åŸæ•°æ® = " + source);
 String aesStr = DESUtil.des(source, key, Cipher.ENCRYPT_MODE);
-System.out.println("¼ÓÃÜºó = " + aesStr);
+System.out.println("åŠ å¯†å = " + aesStr);
 String result = DESUtil.des(aesStr, key, Cipher.DECRYPT_MODE);
-System.out.println("½âÃÜºó = " + result);
+System.out.println("è§£å¯†å = " + result);
 assertEquals(source, result);
-RSAUtil
-·½·¨	ÕªÒª
-Map<String, Object> getKeyPair()	Ëæ»ú»ñÈ¡ÃÜÔ¿(¹«Ô¿ºÍË½Ô¿), ¿Í»§¶Ë¹«Ô¿¼ÓÃÜ£¬·şÎñÆ÷Ë½Ô¿½âÃÜ
-String getKey(Map<String, Object> keyMap, boolean isPublicKey)	»ñÈ¡¹«Ô¿/Ë½Ô¿(true£º»ñÈ¡¹«Ô¿£¬false£º»ñÈ¡Ë½Ô¿)
-String sign(byte[] data, String privateKey)	»ñÈ¡Êı×ÖÇ©Ãû
-boolean verify(byte[] data, String publicKey, String sign)	Êı×ÖÇ©ÃûĞ£Ñé
-byte[] rsa(byte[] data, String string, int type)	Rsa¼ÓÃÜ/½âÃÜ£¨Ò»°ãÇé¿öÏÂ£¬¹«Ô¿¼ÓÃÜË½Ô¿½âÃÜ£©
-µ¥Ôª²âÊÔ£º
+```
 
+### RSAUtil
+
+| æ–¹æ³•                                       | æ‘˜è¦                             |
+| ---------------------------------------- | ------------------------------ |
+| Map\<String, Object\> getKeyPair()       | éšæœºè·å–å¯†é’¥(å…¬é’¥å’Œç§é’¥), å®¢æˆ·ç«¯å…¬é’¥åŠ å¯†ï¼ŒæœåŠ¡å™¨ç§é’¥è§£å¯† |
+| String getKey(Map\<String, Object\> keyMap, boolean isPublicKey) | è·å–å…¬é’¥/ç§é’¥(trueï¼šè·å–å…¬é’¥ï¼Œfalseï¼šè·å–ç§é’¥)  |
+| String sign(byte[] data, String privateKey) | è·å–æ•°å­—ç­¾å                         |
+| boolean verify(byte[] data, String publicKey, String sign) | æ•°å­—ç­¾åæ ¡éªŒ                         |
+| byte[] rsa(byte[] data, String string,  int type) | RsaåŠ å¯†/è§£å¯†ï¼ˆä¸€èˆ¬æƒ…å†µä¸‹ï¼Œå…¬é’¥åŠ å¯†ç§é’¥è§£å¯†ï¼‰       |
+
+å•å…ƒæµ‹è¯•ï¼š
+
+```java
 System.out.println("rsa");
-// des ×Ö·û´®¼ÓÃÜ½âÃÜ²âÊÔ
-byte[] data = "GcsSloopÖĞÎÄ".getBytes();
+// des å­—ç¬¦ä¸²åŠ å¯†è§£å¯†æµ‹è¯•
+byte[] data = "GcsSloopä¸­æ–‡".getBytes();
 
-// ÃÜÔ¿ÓëÊı×ÖÇ©Ãû»ñÈ¡
+// å¯†é’¥ä¸æ•°å­—ç­¾åè·å–
 Map<String, Object> keyMap = RSAUtil.getKeyPair();
 String publicKey = RSAUtil.getKey(keyMap, true);
-System.out.println("rsa»ñÈ¡¹«Ô¿£º " + publicKey);
+System.out.println("rsaè·å–å…¬é’¥ï¼š " + publicKey);
 String privateKey = RSAUtil.getKey(keyMap, false);
-System.out.println("rsa»ñÈ¡Ë½Ô¿£º " + privateKey);
+System.out.println("rsaè·å–ç§é’¥ï¼š " + privateKey);
 
-// ¹«Ô¿¼ÓÃÜË½Ô¿½âÃÜ
+// å…¬é’¥åŠ å¯†ç§é’¥è§£å¯†
 byte[] rsaPublic =
         RSAUtil.rsa(data, publicKey, RSAUtil.RSA_PUBLIC_ENCRYPT);
-System.out.println("rsa¹«Ô¿¼ÓÃÜ£º " + new String(rsaPublic));
-System.out.println("rsaË½Ô¿½âÃÜ£º " + new String(
+System.out.println("rsaå…¬é’¥åŠ å¯†ï¼š " + new String(rsaPublic));
+System.out.println("rsaç§é’¥è§£å¯†ï¼š " + new String(
         RSAUtil.rsa(rsaPublic, privateKey, RSAUtil.RSA_PRIVATE_DECRYPT)));
 
-// Ë½Ô¿¼ÓÃÜ¹«Ô¿½âÃÜ
+// ç§é’¥åŠ å¯†å…¬é’¥è§£å¯†
 byte[] rsaPrivate =
         RSAUtil.rsa(data, privateKey, RSAUtil.RSA_PRIVATE_ENCRYPT);
-System.out.println("rsaË½Ô¿¼ÓÃÜ£º " + new String(rsaPrivate));
-System.out.println("rsa¹«Ô¿½âÃÜ£º " + new String(
+System.out.println("rsaç§é’¥åŠ å¯†ï¼š " + new String(rsaPrivate));
+System.out.println("rsaå…¬é’¥è§£å¯†ï¼š " + new String(
         RSAUtil.rsa(rsaPrivate, publicKey, RSAUtil.RSA_PUBLIC_DECRYPT)));
 
-// Ë½Ô¿Ç©Ãû¼°¹«Ô¿Ç©ÃûĞ£Ñé
+// ç§é’¥ç­¾ååŠå…¬é’¥ç­¾åæ ¡éªŒ
 String signStr = RSAUtil.sign(rsaPrivate, privateKey);
-System.out.println("rsaÊı×ÖÇ©ÃûÉú³É£º " + signStr);
-System.out.println("rsaÊı×ÖÇ©ÃûĞ£Ñé£º " + RSAUtil.verify(rsaPrivate, publicKey, signStr));
+System.out.println("rsaæ•°å­—ç­¾åç”Ÿæˆï¼š " + signStr);
+System.out.println("rsaæ•°å­—ç­¾åæ ¡éªŒï¼š " + RSAUtil.verify(rsaPrivate, publicKey, signStr));
+
+
+### ç‰ˆæœ¬ä¿¡æ¯
+
+#### v1.0.0
+
+æ·»åŠ åŸºæœ¬çš„åŠ å¯†è§£å¯†å·¥å…·å’Œè¾…åŠ©å·¥å…·ç±»ã€‚
+
+- base
+  - **Base64**
+  - **BaseUtils**
+  - **CloseUtils**
+  - **CryptoProvider**
+  - **TextUtils**
+- encode
+  - **Base64Util**
+- oneway
+  - **MD5Util**
+  - **SHAUtil**
+- symmetric
+  - **AESUtil**
+  - **DESUtil**
+- unsymmetric
+  - **RSAUtil**
+
+
+
+## å¤‡æ³¨
+
+æœ¬å·¥å…·åº“ä¸­å¤§éƒ¨åˆ†ä»£ç å‚è€ƒè‡ª [ä¸€ä¸ªèšåˆçš„åŠ è§£å¯†å·¥å…·ç±»](http://blog.csdn.net/gzejia/article/details/52755332) ä½†åœ¨æµ‹è¯•è¿‡ç¨‹ä¸­å‘ç°éƒ¨åˆ†æ–¹æ³•ç»“æœä¸æ­£ç¡®ï¼Œä»¥åŠéƒ¨åˆ†æ–¹æ³•åœ¨Androidå‡çº§è¿‡ç¨‹ä¸­è¿›è¡Œäº†ä¿®æ”¹ï¼Œæ‰€ä»¥æ”¹è¿›äº†ä¸€éƒ¨åˆ†ï¼Œç‰¹æ­¤åˆ¶ä½œä¸€ä¸ªå·¥å…·åº“ï¼Œå¦‚æœå‘ç°æœ‰ä»€ä¹ˆä¸å‡†ç¡®çš„åœ°æ–¹æ¬¢è¿æäº¤ Issuesã€‚
+
+
+
+## å‚è€ƒèµ„æ–™
+
+[ä¸€ä¸ªèšåˆçš„åŠ è§£å¯†å·¥å…·ç±»](http://blog.csdn.net/gzejia/article/details/52755332) 
+
+[åœ¨çº¿åŠ å¯†è§£å¯†](http://tool.oschina.net/encrypt?type=2)
+
+[Androidæ•°æ®åŠ å¯†ä¹‹AesåŠ å¯†](http://www.cnblogs.com/whoislcj/p/5473030.html)
+
+[java.security.NoSuchProviderException: no such provider: Crypto](https://my.oschina.net/yaly/blog/856362)
+
+
+
